@@ -28,6 +28,7 @@ public abstract class Command
         commands.put("registercommand", new RegisterCommand(""));
         commands.put("customerpage", new CommandProtectedPage("customerpage", "customer"));
         commands.put("employeepage", new CommandProtectedPage("employeepage", "employee"));
+        commands.put("bmiresult", new CalcBMICommand("resultpage"));
     }
 
     public static Command fromPath(
@@ -45,6 +46,7 @@ public abstract class Command
 
         return commands.getOrDefault(action, new CommandUnknown());   // unknowncommand is default
     }
+
 
     public abstract String execute(
             HttpServletRequest request,
